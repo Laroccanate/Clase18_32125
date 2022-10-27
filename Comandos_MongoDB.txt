@@ -1,0 +1,584 @@
+
+
+--Nombre Base Datos: BaseDatos_Mongo. 
+--Colecciones: Productos / Mensajes. 
+-------------------------------------
+
+## 1-] Agregar 10 documentos con valores distintos a las colecciones productos y mensajes: 
+## 2-] Definir las claves de los documentos en relacion a los campos de las tablas de esa base. 
+
+
+Comandos (Productos): 
+
+--InsertOne()
+BaseDatos_Mongo> db.productos.insertOne({nombre: "Iphone 13 Pro Max", precio: 899, categoria:"Telefonos"})
+BaseDatos_Mongo> db.productos.insertOne({nombre: "Samsung Galaxy s20FE", precio: 500, categoria:"Telefonos"})
+BaseDatos_Mongo> db.productos.insertOne({nombre:"Hp Spectre x60", precio: 1299, categoria: "Computadoras"})
+BaseDatos_Mongo> db.productos.insertOne({nombre:"LG Smart Tv Curve", precio: 1799, categoria: "Televisores"})
+---
+--InsertMany()
+BaseDatos_Mongo> db.productos.insertMany([{nombre: "Redmi Buds 3", precio: 49, categoria:"Audifonos"}, {nombre: "Hp Pavilion 2020", precio:650, categoria: "Computadoras"}])
+BaseDatos_Mongo> db.productos.insertMany([{nombre: "Air Pods Pro", precio:120, categoria:"Audifonos"}, {nombre: "MacBook Air Pro", precio:999, categoria: "Computadoras"}])
+BaseDatos_Mongo> db.productos.insertMany([{nombre: "Apple Max", precio:60, categoria:"Audifonos"}, {nombre: "Samsung Smart Tv 55""", precio:750, categoria: "Televisores"}])
+
+
+Comandos (Mensajes): 
+--InsertOne()
+BaseDatos_Mongo> db.mensajes.insertOne({nombre: "Jorge Mora", mensaje: "Hola como estas ?"})
+BaseDatos_Mongo> db.mensajes.insertOne({nombre: "Valeria Mejias", mensaje: "Muy bien y tu ?, como te sientes ?"})
+BaseDatos_Mongo> db.mensajes.insertOne({nombre: "Jorge Mora", mensaje: "Mucho mejor, ayer tenia un dolor de cabeza horrible, pero ya me siento mejor. "})
+BaseDatos_Mongo> db.mensajes.insertOne({nombre: "Valeria Mejias", mensaje: "Que bueno , vas a ir a clases hoy??"})
+BaseDatos_Mongo> db.mensajes.insertOne({nombre: "Jorge Mora", mensaje: "Claro que si, tenemos el examen de matematicas"})
+BaseDatos_Mongo> db.mensajes.insertOne({nombre: "Valeria Mejias", mensaje: "Si yo se... me pase todo el dia estudiando las formulas para el examen"})
+BaseDatos_Mongo> db.mensajes.insertOne({nombre: "Jorge Mora", mensaje: "Yo tambien , incluso deje de ver el partido de futbol para estar listo hoy."})
+BaseDatos_Mongo> db.mensajes.insertOne({nombre: "Valeria Mejias", mensaje: "A que hora hay que estar en el salon ?"})
+BaseDatos_Mongo> db.mensajes.insertOne({nombre: "Jorge Mora", mensaje: "Antes de las 8 tenemos que estar allá "})
+BaseDatos_Mongo> db.mensajes.insertOne({nombre: "Valeria Mejias", mensaje: "Perfecto, son las 7:30. Tenemos tiempo..."})
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## 3-] Listar todos los documentos en cada coleccion: 
+
+
+BaseDatos_Mongo> db.productos.find()
+[
+  {
+    _id: ObjectId("632ae32f01dd36a03580ca0d"),
+    nombre: 'Iphone 13 Pro Max',
+    precio: 899,
+    categoria: 'Telefonos'
+  },
+  {
+    _id: ObjectId("632ae39301dd36a03580ca0f"),
+    nombre: 'Samsung Galaxy s20FE',
+    precio: 500,
+    categoria: 'Telefonos'
+  },
+  {
+    _id: ObjectId("632ae3fc01dd36a03580ca10"),
+    nombre: 'Redmi Buds 3',
+    precio: 3200,
+    categoria: 'Audifonos'
+  },
+  {
+    _id: ObjectId("632ae3fc01dd36a03580ca11"),
+    nombre: 'Hp Pavilion 2020',
+    precio: 650,
+    categoria: 'Computadoras'
+  },
+  {
+    _id: ObjectId("632ae44501dd36a03580ca12"),
+    nombre: 'Air Pods Pro',
+    precio: 120,
+    categoria: 'Audifonos'
+  },
+  {
+    _id: ObjectId("632ae44501dd36a03580ca13"),
+    nombre: 'MacBook Air Pro',
+    precio: 999,
+    categoria: 'Computadoras'
+  },
+  {
+    _id: ObjectId("632ae65a01dd36a03580ca14"),
+    nombre: 'Apple Max',
+    precio: 2800,
+    categoria: 'Audifonos'
+  },
+  {
+    _id: ObjectId("632ae65a01dd36a03580ca15"),
+    nombre: 'Apple Max',
+    precio: 540,
+    categoria: 'Audifonos'
+  },
+  {
+    _id: ObjectId("632ae78a01dd36a03580ca16"),
+    nombre: 'Hp Spectre x60',
+    precio: 1299,
+    categoria: 'Computadoras'
+  },
+  {
+    _id: ObjectId("632ae7f101dd36a03580ca17"),
+    nombre: 'LG Smart Tv Curve',
+    precio: 1799,
+    categoria: 'Televisores'
+  }
+]
+
+
+-----------------------------
+
+BaseDatos_Mongo> db.mensajes.find()
+[
+  {
+    _id: ObjectId("632ae86e01dd36a03580ca18"),
+    nombre: 'Jorge Mora',
+    mensaje: 'Hola como estas ?'
+  },
+  {
+    _id: ObjectId("632ae8b501dd36a03580ca19"),
+    nombre: 'Valeria Mejias',
+    mensaje: 'Muy bien y tu ?, como te sientes ?'
+  },
+  {
+    _id: ObjectId("632ae8fb01dd36a03580ca1a"),
+    nombre: 'Jorge Mora',
+    mensaje: 'Mucho mejor, ayer tenia un dolor de cabeza horrible, pero ya me siento mejor. '
+  },
+  {
+    _id: ObjectId("632ae91301dd36a03580ca1b"),
+    nombre: 'Valeria Mejias',
+    mensaje: 'Que bueno , vas a ir a clases hoy??'
+  },
+  {
+    _id: ObjectId("632ae92d01dd36a03580ca1c"),
+    nombre: 'Jorge Mora',
+    mensaje: 'Claro que si, tenemos el examen de matematicas'
+  },
+  {
+    _id: ObjectId("632ae94e01dd36a03580ca1d"),
+    nombre: 'Valeria Mejias',
+    mensaje: 'Si yo se... me pase todo el dia estudiando las formulas para el examen'
+  },
+  {
+    _id: ObjectId("632ae98301dd36a03580ca1e"),
+    nombre: 'Jorge Mora',
+    mensaje: 'Yo tambien , incluso deje de ver el partido de futbol para estar listo hoy.'
+  },
+  {
+    _id: ObjectId("632ae9cd01dd36a03580ca1f"),
+    nombre: 'Valeria Mejias',
+    mensaje: 'A que hora hay que estar en el salon ?'
+  },
+  {
+    _id: ObjectId("632ae9ef01dd36a03580ca20"),
+    nombre: 'Jorge Mora',
+    mensaje: 'Antes de las 8 tenemos que estar allá '
+  },
+  {
+    _id: ObjectId("632aea1201dd36a03580ca21"),
+    nombre: 'Valeria Mejias',
+    mensaje: 'Perfecto, son las 7:30. Tenemos tiempo...'
+  }
+]
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+## 4-] Mostrar la cantidad de documentos; 
+
+BaseDatos_Mongo> db.productos.estimatedDocumentCount()
+10
+
+BaseDatos_Mongo> db.mensajes.estimatedDocumentCount()
+10
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+## 5-] Realizar un crud en la colección de productos; 
+
+---- Agregar un producto; 
+
+BaseDatos_Mongo> db.productos.insertOne({nombre: "Microsoft Surface Go", precio: 499, categorias: "Computadoras"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("632af0ff01dd36a03580ca23")
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--- Listar los productos menores a 1000 pesos; 
+
+BaseDatos_Mongo> db.productos.find({precio: {$lt: 1000}})
+[
+  {
+    _id: ObjectId("632ae32f01dd36a03580ca0d"),
+    nombre: 'Iphone 13 Pro Max',
+    precio: 899,
+    categoria: 'Telefonos'
+  },
+  {
+    _id: ObjectId("632ae39301dd36a03580ca0f"),
+    nombre: 'Samsung Galaxy s20FE',
+    precio: 500,
+    categoria: 'Telefonos'
+  },
+  {
+    _id: ObjectId("632ae3fc01dd36a03580ca11"),
+    nombre: 'Hp Pavilion 2020',
+    _id: ObjectId("632ae44501dd36a03580ca12"),
+    nombre: 'Air Pods Pro',
+    precio: 120,
+    categoria: 'Audifonos'
+  },
+  {
+    _id: ObjectId("632ae44501dd36a03580ca13"),
+    nombre: 'MacBook Air Pro',
+    precio: 999,
+    categoria: 'Computadoras'
+  },
+  {
+    _id: ObjectId("632ae65a01dd36a03580ca15"),
+    nombre: 'Apple Max',
+    precio: 540,
+    categoria: 'Audifonos'
+  },
+  {
+    _id: ObjectId("632af0e701dd36a03580ca22"),
+    nombre: 'Microsoft Surface Go',
+    precio: 499,
+    categorias: 'Computadoras'
+  },
+  {
+    _id: ObjectId("632af0ff01dd36a03580ca23"),
+    nombre: 'Microsoft Surface Go',
+    precio: 499,
+    categorias: 'Computadoras'
+  }
+]
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--- Listar todos los productos menores a 1700 y mayores a 500; 
+
+BaseDatos_Mongo> db.productos.find({$and: [{precio: {$lte: 1700}}, {precio: {$gte: 500}}]})
+[
+  {
+    _id: ObjectId("632ae32f01dd36a03580ca0d"),
+    nombre: 'Iphone 13 Pro Max',
+    precio: 899,
+    categoria: 'Telefonos'
+  },
+  {
+    _id: ObjectId("632ae39301dd36a03580ca0f"),
+    nombre: 'Samsung Galaxy s20FE',
+    precio: 500,
+    categoria: 'Telefonos'
+  },
+  {
+    _id: ObjectId("632ae3fc01dd36a03580ca11"),
+    nombre: 'Hp Pavilion 2020',
+    precio: 650,
+    categoria: 'Computadoras'
+  },
+  {
+    _id: ObjectId("632ae44501dd36a03580ca13"),
+    nombre: 'MacBook Air Pro',
+    precio: 999,
+    categoria: 'Computadoras'
+  },
+  {
+    _id: ObjectId("632ae65a01dd36a03580ca15"),
+    nombre: 'Apple Max',
+    precio: 540,
+    categoria: 'Audifonos'
+  },
+  {
+    _id: ObjectId("632ae78a01dd36a03580ca16"),
+    nombre: 'Hp Spectre x60',
+    precio: 1299,
+    categoria: 'Computadoras'
+  }
+]
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+--- Productos mayores a 2000; 
+
+BaseDatos_Mongo> db.productos.find({precio: {$gte: 2000}})
+[
+  {
+    _id: ObjectId("632ae3fc01dd36a03580ca10"),
+    nombre: 'Redmi Buds 3',
+    precio: 3200,
+    categoria: 'Audifonos'
+  },
+  {
+    _id: ObjectId("632ae65a01dd36a03580ca14"),
+    nombre: 'Apple Max',
+    precio: 2800,
+    categoria: 'Audifonos'
+  }
+]
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+---Traer el tercer producto mas barato; 
+
+BaseDatos_Mongo>  db.productos.find({}, {nombre:1, _id:0}).sort({precio:1}).skip(2).limit(1)
+[ { nombre: 'Air Pods Pro' } ]
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+--- Actualizacion de productos con un stock de 100; 
+
+BaseDatos_Mongo> db.productos.updateMany({}, {$set: {stock: 100}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 12,
+  modifiedCount: 12,
+  upsertedCount: 0
+}
+BaseDatos_Mongo> db.productos.find()
+[
+  {
+    _id: ObjectId("632ae32f01dd36a03580ca0d"),
+    nombre: 'Iphone 13 Pro Max',
+    precio: 899,
+    categoria: 'Telefonos',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae39301dd36a03580ca0f"),
+    nombre: 'Samsung Galaxy s20FE',
+    precio: 500,
+    categoria: 'Telefonos',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae3fc01dd36a03580ca10"),
+    nombre: 'Redmi Buds 3',
+    precio: 3200,
+    categoria: 'Audifonos',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae3fc01dd36a03580ca11"),
+    nombre: 'Hp Pavilion 2020',
+    precio: 650,
+    categoria: 'Computadoras',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae44501dd36a03580ca12"),
+    nombre: 'Air Pods Pro',
+    precio: 120,
+    categoria: 'Audifonos',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae44501dd36a03580ca13"),
+    nombre: 'MacBook Air Pro',
+    precio: 999,
+    categoria: 'Computadoras',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae65a01dd36a03580ca14"),
+    nombre: 'Apple Max',
+    precio: 2800,
+    categoria: 'Audifonos',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae65a01dd36a03580ca15"),
+    nombre: 'Apple Max',
+    precio: 540,
+    categoria: 'Audifonos',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae78a01dd36a03580ca16"),
+    nombre: 'Hp Spectre x60',
+    precio: 1299,
+    categoria: 'Computadoras',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae7f101dd36a03580ca17"),
+    nombre: 'LG Smart Tv Curve',
+    precio: 1799,
+    categoria: 'Televisores',
+    stock: 100
+  },
+  {
+]
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ Actualizar los productos mayores a 2000 con un stock con 0 unidades
+
+BaseDatos_Mongo> db.productos.updateMany({precio: {$gte: 2000}}, {$set: {stock:0}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+(Nuevamente en listando los productos con los stocks actualizados)
+BaseDatos_Mongo> db.productos.find()
+[
+  {
+    _id: ObjectId("632ae32f01dd36a03580ca0d"),
+    nombre: 'Iphone 13 Pro Max',
+    precio: 899,
+    categoria: 'Telefonos',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae39301dd36a03580ca0f"),
+    nombre: 'Samsung Galaxy s20FE',
+    precio: 500,
+    categoria: 'Telefonos',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae3fc01dd36a03580ca10"),
+    nombre: 'Redmi Buds 3',
+    precio: 3200,
+    categoria: 'Audifonos',
+    stock: 0
+  },
+  {
+    _id: ObjectId("632ae3fc01dd36a03580ca11"),
+    nombre: 'Hp Pavilion 2020',
+    precio: 650,
+    categoria: 'Computadoras',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae44501dd36a03580ca12"),
+    nombre: 'Air Pods Pro',
+    precio: 120,
+    categoria: 'Audifonos',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae44501dd36a03580ca13"),
+    nombre: 'MacBook Air Pro',
+    precio: 999,
+    categoria: 'Computadoras',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae65a01dd36a03580ca14"),
+    nombre: 'Apple Max',
+    precio: 2800,
+    categoria: 'Audifonos',
+    stock: 0
+  },
+  {
+    _id: ObjectId("632ae65a01dd36a03580ca15"),
+    nombre: 'Apple Max',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae7f101dd36a03580ca17"),
+    nombre: 'LG Smart Tv Curve',
+    precio: 1799,
+    categoria: 'Televisores',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632af0e701dd36a03580ca22"),
+    nombre: 'Microsoft Surface Go',
+    precio: 499,
+    categorias: 'Computadoras',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632af0ff01dd36a03580ca23"),
+    nombre: 'Microsoft Surface Go',
+    precio: 499,
+    categorias: 'Computadoras',
+    stock: 100
+  }
+]
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+ Eliminar todos los productos con un precio menor a 1000
+
+BaseDatos_Mongo> db.productos.deleteMany({precio: {$lte:1000}})
+{ acknowledged: true, deletedCount: 8 }
+
+
+BaseDatos_Mongo> db.productos.find()
+[
+  {
+    _id: ObjectId("632ae3fc01dd36a03580ca10"),
+    nombre: 'Redmi Buds 3',
+    precio: 3200,
+    categoria: 'Audifonos',
+    stock: 0
+  },
+  {
+    _id: ObjectId("632ae65a01dd36a03580ca14"),
+    nombre: 'Apple Max',
+    precio: 2800,
+    categoria: 'Audifonos',
+    stock: 0
+  },
+  {
+    _id: ObjectId("632ae78a01dd36a03580ca16"),
+    nombre: 'Hp Spectre x60',
+    precio: 1299,
+    categoria: 'Computadoras',
+    stock: 100
+  },
+  {
+    _id: ObjectId("632ae7f101dd36a03580ca17"),
+    nombre: 'LG Smart Tv Curve',
+    precio: 1799,
+    categoria: 'Televisores',
+    stock: 100
+  }
+]
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Creando un usuario "pepe", conteniendo una contraseña "asd456". Verificando que su rol de "read" no pueda modificar datos.
+
+admin> db.createUser({
+... user: "pepe",
+... pwd: "asd456",
+... roles: [{role: "read", db: "BaseDatos_Mongo"}]
+... })
+{ ok: 1 }
+
+
+(Obteniendo todos los usuarios registrados)
+admin> db.getUsers()
+{
+  users: [
+    {
+      _id: 'admin.Jorge',
+      userId: UUID("66499dfb-9b73-40be-b149-9b2fc7c3f3e8"),
+      user: 'Jorge',
+      db: 'admin',
+      roles: [ { role: 'read', db: 'BaseDatos_Mongo' } ],
+      mechanisms: [ 'SCRAM-SHA-1', 'SCRAM-SHA-256' ]
+    },
+    {
+      _id: 'admin.Usuario',
+      userId: UUID("c5d84001-02a5-4208-a354-3090c545906b"),
+      user: 'Usuario',
+      db: 'admin',
+      roles: [ { role: 'read', db: 'BaseDatos_Mongo' } ],
+      mechanisms: [ 'SCRAM-SHA-1', 'SCRAM-SHA-256' ]
+    },
+    {
+      _id: 'admin.pepe',
+      userId: UUID("43259ecf-c2dd-4a22-aa39-59c10376d147"),
+      user: 'pepe',
+      db: 'admin',
+      roles: [ { role: 'read', db: 'BaseDatos_Mongo' } ],
+      mechanisms: [ 'SCRAM-SHA-1', 'SCRAM-SHA-256' ]
+    }
+  ],
+  ok: 1
+}
+
+
+
+
+(Error arrojado por la base de datos.)
+
+--  MongoServerError: not authorized on BaseDatos_Mongo to execute command { insert: "productos", documents: [ { nombre: "Redmi Note 9",  _id: ObjectId('9725y287392b23t57cc67c0a') } ], ordered: true, lsid: { id: UUID("43259ecf-c2dd-4a22-aa39-59c10376d147") }, $db: "BaseDatos_Mongo" }
